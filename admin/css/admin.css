@@ -1,0 +1,19 @@
+.wpsl-wrap .wpsl-tagline {
+	color: #646970;
+	font-size: 14px;
+	margin-top: 4px;
+}
+
+.wpsl-wrap h2 {
+	margin-top: 28px;
+	padding-bottom: 6px;
+	border-bottom: 1px solid #dcdcde;
+}
+
+.wpsl-clear-form {
+	margin: 12px 0;
+}
+
+.wpsl-log-table code {
+	font-size: 12px;
+}
