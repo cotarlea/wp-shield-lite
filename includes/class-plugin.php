@@ -59,6 +59,7 @@ final class WPSL_Plugin {
 		$this->activity_log->register();
 
 		( new WPSL_Login_Protection( $settings, $this->activity_log ) )->register();
+		( new WPSL_Login_Notifications( $settings ) )->register();
 		( new WPSL_Hardening( $settings ) )->register();
 		( new WPSL_Security_Headers( $settings ) )->register();
 

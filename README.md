@@ -23,6 +23,8 @@ with no bloat and no upsells.
   `Referrer-Policy`.
 - **Activity log** — successful logins, failed attempts and lockouts, stored in
   a dedicated table with an admin viewer.
+- **New-IP login alerts** — email notification when an administrator signs in
+  from an IP address not seen before.
 
 This plugin is **defensive only**. It hardens your own site; it does not scan or
 act against third parties.
@@ -68,6 +70,7 @@ wp-shield-lite/
 │   ├── class-plugin.php            # Orchestrator + IP helper
 │   ├── class-settings.php          # Option storage & sanitisation
 │   ├── class-login-protection.php  # Brute-force throttling
+│   ├── class-login-notifications.php # New-IP admin login email alerts
 │   ├── class-hardening.php         # Hardening toggles
 │   ├── class-security-headers.php  # Response headers
 │   ├── class-activity-log.php      # Log table + queries

@@ -33,6 +33,8 @@ class WPSL_Settings {
 			'disable_user_enum'   => 1,
 			'security_headers'    => 1,
 			'activity_log'        => 1,
+			'login_notify'        => 0,
+			'notify_email'        => '',
 		);
 	}
 
@@ -94,11 +96,15 @@ class WPSL_Settings {
 			'disable_user_enum',
 			'security_headers',
 			'activity_log',
+			'login_notify',
 		);
 
 		foreach ( $booleans as $key ) {
 			$sanitized[ $key ] = empty( $input[ $key ] ) ? 0 : 1;
 		}
+
+		$notify_email              = isset( $input['notify_email'] ) ? sanitize_email( $input['notify_email'] ) : '';
+		$sanitized['notify_email'] = is_email( $notify_email ) ? $notify_email : '';
 
 		$max_attempts              = isset( $input['max_attempts'] ) ? absint( $input['max_attempts'] ) : $defaults['max_attempts'];
 		$sanitized['max_attempts'] = max( 1, min( 100, $max_attempts ) );

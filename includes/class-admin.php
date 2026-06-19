@@ -212,6 +212,20 @@ class WPSL_Admin {
 					?>
 				</table>
 
+				<h2><?php esc_html_e( 'Notifications', 'wp-shield-lite' ); ?></h2>
+				<table class="form-table" role="presentation">
+					<?php
+					$this->checkbox( $s, 'login_notify', __( 'New-IP admin login alert', 'wp-shield-lite' ), __( 'Email an alert when an administrator logs in from an IP not seen before.', 'wp-shield-lite' ) );
+					?>
+					<tr>
+						<th scope="row"><?php esc_html_e( 'Alert email address', 'wp-shield-lite' ); ?></th>
+						<td>
+							<input type="email" class="regular-text" name="<?php echo esc_attr( WPSL_Settings::OPTION . '[notify_email]' ); ?>" value="<?php echo esc_attr( $s['notify_email'] ); ?>" placeholder="<?php echo esc_attr( get_option( 'admin_email' ) ); ?>" />
+							<p class="description"><?php esc_html_e( 'Leave empty to use the site admin email.', 'wp-shield-lite' ); ?></p>
+						</td>
+					</tr>
+				</table>
+
 				<?php submit_button(); ?>
 			</form>
 		</div>
