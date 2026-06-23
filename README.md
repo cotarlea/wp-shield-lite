@@ -25,6 +25,8 @@ with no bloat and no upsells.
   a dedicated table with an admin viewer.
 - **New-IP login alerts** — email notification when an administrator signs in
   from an IP address not seen before.
+- **Strong-password policy** — enforce length and complexity and block common
+  passwords on registration, profile updates and resets.
 
 This plugin is **defensive only**. It hardens your own site; it does not scan or
 act against third parties.
@@ -71,6 +73,7 @@ wp-shield-lite/
 │   ├── class-settings.php          # Option storage & sanitisation
 │   ├── class-login-protection.php  # Brute-force throttling
 │   ├── class-login-notifications.php # New-IP admin login email alerts
+│   ├── class-password-policy.php   # Strong-password enforcement
 │   ├── class-hardening.php         # Hardening toggles
 │   ├── class-security-headers.php  # Response headers
 │   ├── class-activity-log.php      # Log table + queries

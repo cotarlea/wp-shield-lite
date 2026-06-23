@@ -4,7 +4,7 @@ Tags: security, login, brute force, hardening, security headers
 Requires at least: 5.6
 Tested up to: 6.5
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,8 @@ Features:
 * **Activity log** – record successful logins, failed attempts and lockouts.
 * **New-IP login alerts** – get an email when an administrator signs in from an
   IP address that has not been seen before.
+* **Strong-password policy** – require length and complexity and reject common
+  passwords across registration, profile updates and resets.
 
 The plugin is intentionally defensive only: it hardens your own site and does
 not perform any scanning or action against third parties.
@@ -51,6 +53,11 @@ expire or clear the related transients from your database.
 No. A CSP almost always needs per-site tuning, so it is intentionally left out.
 
 == Changelog ==
+
+= 1.2.0 =
+* New: strong-password policy enforced on registration, profile updates and
+  password resets, with configurable minimum length and a common-password
+  blocklist.
 
 = 1.1.0 =
 * New: email alert when an administrator logs in from a new IP address, with a

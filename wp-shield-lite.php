@@ -3,7 +3,7 @@
  * Plugin Name:       WP Shield Lite
  * Plugin URI:        https://github.com/cotarlea/wp-shield-lite
  * Description:       Lightweight defensive security plugin for WordPress: brute-force login protection, one-click hardening, security headers and an activity log.
- * Version:           1.1.0
+ * Version:           1.2.0
  * Requires at least: 5.6
  * Requires PHP:      7.4
  * Author:            Cotarlea Paul
@@ -19,7 +19,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'WPSL_VERSION', '1.1.0' );
+define( 'WPSL_VERSION', '1.2.0' );
 define( 'WPSL_FILE', __FILE__ );
 define( 'WPSL_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WPSL_URL', plugin_dir_url( __FILE__ ) );
@@ -30,6 +30,7 @@ require_once WPSL_DIR . 'includes/class-settings.php';
 require_once WPSL_DIR . 'includes/class-activity-log.php';
 require_once WPSL_DIR . 'includes/class-login-protection.php';
 require_once WPSL_DIR . 'includes/class-login-notifications.php';
+require_once WPSL_DIR . 'includes/class-password-policy.php';
 require_once WPSL_DIR . 'includes/class-hardening.php';
 require_once WPSL_DIR . 'includes/class-security-headers.php';
 require_once WPSL_DIR . 'includes/class-admin.php';

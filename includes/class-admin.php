@@ -212,6 +212,19 @@ class WPSL_Admin {
 					?>
 				</table>
 
+				<h2><?php esc_html_e( 'Passwords', 'wp-shield-lite' ); ?></h2>
+				<table class="form-table" role="presentation">
+					<?php
+					$this->checkbox( $s, 'password_policy', __( 'Enforce strong passwords', 'wp-shield-lite' ), __( 'Require length and complexity, and reject common passwords, on registration, profile updates and resets.', 'wp-shield-lite' ) );
+					?>
+					<tr>
+						<th scope="row"><?php esc_html_e( 'Minimum password length', 'wp-shield-lite' ); ?></th>
+						<td>
+							<input type="number" min="6" max="64" name="<?php echo esc_attr( WPSL_Settings::OPTION . '[password_min_length]' ); ?>" value="<?php echo esc_attr( $s['password_min_length'] ); ?>" class="small-text" />
+						</td>
+					</tr>
+				</table>
+
 				<h2><?php esc_html_e( 'Notifications', 'wp-shield-lite' ); ?></h2>
 				<table class="form-table" role="presentation">
 					<?php

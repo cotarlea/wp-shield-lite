@@ -35,6 +35,8 @@ class WPSL_Settings {
 			'activity_log'        => 1,
 			'login_notify'        => 0,
 			'notify_email'        => '',
+			'password_policy'     => 0,
+			'password_min_length' => 12,
 		);
 	}
 
@@ -97,6 +99,7 @@ class WPSL_Settings {
 			'security_headers',
 			'activity_log',
 			'login_notify',
+			'password_policy',
 		);
 
 		foreach ( $booleans as $key ) {
@@ -111,6 +114,9 @@ class WPSL_Settings {
 
 		$lockout                      = isset( $input['lockout_minutes'] ) ? absint( $input['lockout_minutes'] ) : $defaults['lockout_minutes'];
 		$sanitized['lockout_minutes'] = max( 1, min( 1440, $lockout ) );
+
+		$min_length                       = isset( $input['password_min_length'] ) ? absint( $input['password_min_length'] ) : $defaults['password_min_length'];
+		$sanitized['password_min_length'] = max( 6, min( 64, $min_length ) );
 
 		return $sanitized;
 	}
