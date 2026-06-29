@@ -1,5 +1,6 @@
 # WP Shield Lite
 
+[![Lint](https://github.com/cotarlea/wp-shield-lite/actions/workflows/lint.yml/badge.svg)](https://github.com/cotarlea/wp-shield-lite/actions/workflows/lint.yml)
 [![License: GPL v2](https://img.shields.io/badge/License-GPLv2-blue.svg)](LICENSE)
 
 **Lightweight, defensive security hardening for WordPress** — brute-force login

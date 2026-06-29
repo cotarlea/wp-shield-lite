@@ -1,0 +1,47 @@
+name: Lint
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+permissions:
+  contents: read
+
+jobs:
+  php-lint:
+    name: PHP ${{ matrix.php }} syntax check
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php: [ '7.4', '8.0', '8.1', '8.2', '8.3' ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up PHP ${{ matrix.php }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+
+      - name: Lint all PHP files
+        run: |
+          echo "Linting with PHP $(php -r 'echo PHP_VERSION;')"
+          error=0
+          while IFS= read -r -d '' file; do
+            if ! php -l "$file" > /dev/null 2>&1; then
+              echo "::error file=$file::Syntax error"
+              php -l "$file" || true
+              error=1
+            fi
+          done < <(find . -type f -name '*.php' -not -path './vendor/*' -print0)
+          if [ "$error" -ne 0 ]; then
+            echo "PHP lint failed."
+            exit 1
+          fi
+          echo "All PHP files passed syntax check."
